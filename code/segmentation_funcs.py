@@ -23,7 +23,7 @@ def mask_segmentor(image_ids,df,segment_height=300,segment_width=300,
                    input_folder="/content/drive/MyDrive/NIMHANS DATA GBM/images/",
                    image_folder="/content/drive/MyDrive/NIMHANS DATA GBM/image_crops/",
                    mask_folder="/content/drive/MyDrive/NIMHANS DATA GBM/mask_crops/",
-                   categories=["hard negative","mitotic figure"]):
+                   categories=["mitotic figure"]):
   prepare_folders(image_folder,mask_folder)
   
   for id in tqdm(image_ids):
@@ -41,8 +41,8 @@ def mask_segmentor(image_ids,df,segment_height=300,segment_width=300,
         max_y=(j+1)*segment_height
         cropped_im = image.crop((min_x, min_y, max_x, max_y))#left upper right lower
         cropped_mask = mask_img.crop((min_x, min_y, max_x, max_y))
-        cropped_im.save(image_folder+str(id[0:3])+"/"+str(id[0:3])+"_x"+str(min_x)+"_y"+str(min_y)+".tiff")
-        cropped_mask.save(mask_folder+str(id[0:3])+"/"+str(id[0:3])+"mask_x"+str(min_x)+"_y"+str(min_y)+".tiff")
+        cropped_im.save(image_folder+str(id[0:1])+"/"+str(id[0:1])+"_x"+str(min_x)+"_y"+str(min_y)+".tiff")
+        cropped_mask.save(mask_folder+str(id[0:1])+"/"+str(id[0:1])+"mask_x"+str(min_x)+"_y"+str(min_y)+".tiff")
         
         
         
