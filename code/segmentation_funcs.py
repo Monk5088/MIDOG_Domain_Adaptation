@@ -5,7 +5,7 @@ from PIL import Image
 import os 
 import glob
 
-def create_mask(image_no,df,categories=["hard negative","mitotic figure"]):
+def create_mask(image_no,df,categories=["mitotic figure"]):
   box_df=df[df['image_id']==image_no].reset_index(drop=True)
   if box_df.shape[0] > 0:
     bin_mask=np.zeros([box_df['height'][0],box_df['width'][0]], dtype=int)
@@ -19,16 +19,16 @@ def create_mask(image_no,df,categories=["hard negative","mitotic figure"]):
 
 
 
-def mask_segmentor(image_ids,df,segment_height=600,segment_width=600,
-                   input_folder="/drive/MyDrive/MIDOG_Challenge/images/",
-                   image_folder="/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/",
-                   mask_folder="/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/",
+def mask_segmentor(image_ids,df,segment_height=300,segment_width=300,
+                   input_folder="/content/drive/MyDrive/NIMHANS DATA GBM/images/",
+                   image_folder="/content/drive/MyDrive/NIMHANS DATA GBM/image_crops/",
+                   mask_folder="/content/drive/MyDrive/NIMHANS DATA GBM/mask_crops/",
                    categories=["hard negative","mitotic figure"]):
   prepare_folders(image_folder,mask_folder)
   
   for id in tqdm(image_ids):
     image = Image.open(input_folder+id).convert('RGB')
-    bin_mask = create_mask(int(id[0:3]),df,categories=categories)
+    bin_mask = create_mask(int(id[0:1]),df,categories=categories)
     mask_img = Image.fromarray((bin_mask * 255).astype(np.uint8))
     imshape=image.size
     
@@ -46,14 +46,14 @@ def mask_segmentor(image_ids,df,segment_height=600,segment_width=600,
         
         
         
-def prepare_folders(image_folder="/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/",
-                     mask_folder="/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/"):
+def prepare_folders(image_folder="/content/drive/MyDrive/NIMHANS DATA GBM/image_crops/",
+                     mask_folder="/content/drive/MyDrive/NIMHANS DATA GBM/mask_crops/"):
   if not os.path.isdir(image_folder):
     os.makedirs(image_folder)
   if not os.path.isdir(mask_folder):
     os.makedirs(mask_folder)
 
-  scanner_ids=[str(i+1).zfill(3) for i in range(150)]
+  scanner_ids=[str(i) for i in range(2)]
   for id in scanner_ids:
     if os.path.isdir(image_folder+id):
       files = glob.glob(image_folder+id+"/*")
