@@ -19,10 +19,10 @@ def create_mask(image_no,df,categories=["mitotic figure"]):
 
 
 
-def mask_segmentor(image_ids,df,segment_height=300,segment_width=300,
-                   input_folder="/content/drive/MyDrive/NIMHANS DATA GBM/images/",
-                   image_folder="/content/drive/MyDrive/NIMHANS DATA GBM/image_crops/",
-                   mask_folder="/content/drive/MyDrive/NIMHANS DATA GBM/mask_crops/",
+def mask_segmentor(image_ids,df,segment_height=600,segment_width=600,
+                   input_folder="/content/drive/MyDrive/MIDOG_Challenge/images/",
+                   image_folder="/content/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/",
+                   mask_folder="/content/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/",
                    categories=["mitotic figure"]):
   prepare_folders(image_folder,mask_folder)
   
@@ -46,8 +46,8 @@ def mask_segmentor(image_ids,df,segment_height=300,segment_width=300,
         
         
         
-def prepare_folders(image_folder="/content/drive/MyDrive/NIMHANS DATA GBM/image_crops/",
-                     mask_folder="/content/drive/MyDrive/NIMHANS DATA GBM/mask_crops/"):
+def prepare_folders(image_folder="/content/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/",
+                     mask_folder="/content/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/"):
   if not os.path.isdir(image_folder):
     os.makedirs(image_folder)
   if not os.path.isdir(mask_folder):
