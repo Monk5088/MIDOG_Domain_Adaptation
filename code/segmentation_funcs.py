@@ -28,7 +28,7 @@ def mask_segmentor(image_ids,df,segment_height=600,segment_width=600,
   
   for id in tqdm(image_ids):
     image = Image.open(input_folder+id).convert('RGB')
-    bin_mask = create_mask(int(id[0:1]),df,categories=categories)
+    bin_mask = create_mask(int(id[0:3]),df,categories=categories)
     mask_img = Image.fromarray((bin_mask * 255).astype(np.uint8))
     imshape=image.size
     
@@ -41,8 +41,8 @@ def mask_segmentor(image_ids,df,segment_height=600,segment_width=600,
         max_y=(j+1)*segment_height
         cropped_im = image.crop((min_x, min_y, max_x, max_y))#left upper right lower
         cropped_mask = mask_img.crop((min_x, min_y, max_x, max_y))
-        cropped_im.save(image_folder+str(id[0:1])+"/"+str(id[0:1])+"_x"+str(min_x)+"_y"+str(min_y)+".tiff")
-        cropped_mask.save(mask_folder+str(id[0:1])+"/"+str(id[0:1])+"mask_x"+str(min_x)+"_y"+str(min_y)+".tiff")
+        cropped_im.save(image_folder+str(id[0:3])+"/"+str(id[0:3])+"_x"+str(min_x)+"_y"+str(min_y)+".tiff")
+        cropped_mask.save(mask_folder+str(id[0:3])+"/"+str(id[0:3])+"mask_x"+str(min_x)+"_y"+str(min_y)+".tiff")
         
         
         
@@ -53,7 +53,7 @@ def prepare_folders(image_folder="/content/drive/MyDrive/MIDOG_Challenge_JJB/ima
   if not os.path.isdir(mask_folder):
     os.makedirs(mask_folder)
 
-  scanner_ids=[str(i) for i in range(2)]
+  scanner_ids=[str(i+1).zfill(3) for i in range(150)]
   for id in scanner_ids:
     if os.path.isdir(image_folder+id):
       files = glob.glob(image_folder+id+"/*")
