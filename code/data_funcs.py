@@ -59,7 +59,7 @@ def train_test_split(df):
 
 
 
-def folderise_crops_by_WSI_index(test_name,model_name,results_dir="/drive/MyDrive/MIDOG_Style_Transfer/pytorch-CycleGAN-and-pix2pix/results/"):
+def folderise_crops_by_WSI_index(test_name,model_name,results_dir="/content/drive/MyDrive/MIDOG_Style_Transfer/pytorch-CycleGAN-and-pix2pix/results/"):
   image_dir=results_dir+model_name+"/"+test_name+"/images/"
 
   ##find all images in the results output folder
