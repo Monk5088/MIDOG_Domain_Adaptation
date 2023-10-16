@@ -13,7 +13,7 @@ def get_bbox_df(image_folder="/content/drive/MyDrive/MIDOG_Challenge/images",ann
   rows = []
   with open(annotation_file) as f:
       data = json.load(f)
-      categories = {1: 'mitotic figure'}
+      categories = {1: 'mitotic figure', 2: 'hard negative'}
 
       for row in data["images"]:
           file_name = row["file_name"]
