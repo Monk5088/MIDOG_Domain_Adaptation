@@ -13,7 +13,7 @@ def get_bbox_df(image_folder="/content/drive/MyDrive/MIDOG_Challenge/images",ann
   rows = []
   with open(annotation_file) as f:
       data = json.load(f)
-      categories = {1: 'mitotic figure', 2: 'hard negative'}
+      categories = {1: 'mitotic figure'}
 
       for row in data["images"]:
           file_name = row["file_name"]
@@ -33,7 +33,8 @@ def get_bbox_df(image_folder="/content/drive/MyDrive/MIDOG_Challenge/images",ann
               box = annotation["bbox"]
               cat = categories[annotation["category_id"]]
               point = [0.5*(box[0]+box[2]),0.5*(box[1]+box[3])]
-              rows.append([file_name, image_id, width, height, box, point, cat, scanner])
+              if cat =='mitotic figure':
+                rows.append([file_name, image_id, width, height, box, point, cat, scanner])
 
   df = pd.DataFrame(rows, columns=["file_name", "image_id", "width", "height", "box", "point", "cat", "scanner"])
   return(df)
