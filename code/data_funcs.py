@@ -3,7 +3,7 @@ import pandas as pd
 import shutil
 import os
 
-def get_bbox_df(image_folder="/drive/MyDrive/MIDOG_Challenge/images",annotation_file="/drive/MyDrive/MIDOG_Challenge/MIDOG.json"):
+def get_bbox_df(image_folder="/content/drive/MyDrive/MIDOG_Challenge/images",annotation_file="/content/drive/MyDrive/MIDOG_Challenge/MIDOG.json"):
 
   hamamatsu_rx_ids = list(range(0, 51))
   hamamatsu_360_ids = list(range(51, 101))
