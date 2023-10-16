@@ -57,7 +57,7 @@ def create_wsi_container(annotations_df: pd.DataFrame, res_level, patch_size, in
 def sample_selector(dataframe, train_samples, val_samples, batch_size, transforms, patch_size=256, res_level=0, 
                     train_scanner = "Hamamatsu XR", val_scanner = "Hamamatsu S360",
                     random_seed = None, normalise = True, testdataframe = None,
-                    input_folder="/drive/MyDrive/MIDOG_Challenge/images/"):
+                    input_folder="/content/drive/MyDrive/MIDOG_Challenge/images/"):
   
   if patch_size not in [256,512,1024]:
     print("Suggested patch sizes are 256, 512 or 1024")
