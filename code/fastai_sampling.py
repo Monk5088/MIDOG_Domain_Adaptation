@@ -35,7 +35,7 @@ def sample_function_test(y, classes, size, level_dimensions, level):
 
           
           
-def create_wsi_container(annotations_df: pd.DataFrame, res_level, patch_size, input_folder="/drive/MyDrive/MIDOG_Challenge/images/",train=True):
+def create_wsi_container(annotations_df: pd.DataFrame, res_level, patch_size, input_folder="/content/drive/MyDrive/MIDOG_Challenge/images/",train=True):
 
     container = []
 
