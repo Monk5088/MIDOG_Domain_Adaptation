@@ -71,7 +71,7 @@ def image_end_path_cgan(image_name):
 
 
 def get_cyclegan_prediction(model,model_type,train_scanners,valid_scanners,CGAN_model_name,CGAN_test_name,image_transforms=None,train_transforms=None,anchors=None,
-                            threshold=0.5,min_detection_dim=10,results_dir="/drive/MyDrive/MIDOG_Style_Transfer/pytorch-CycleGAN-and-pix2pix/results/",
+                            threshold=0.5,min_detection_dim=10,results_dir="/content/drive/MyDrive/MIDOG_Style_Transfer/pytorch-CycleGAN-and-pix2pix/results/",
                             mask_name_func=get_mask_name_cgan,image_name_func=image_end_path_cgan,device='cuda',max_patches=1000):
   assert model_type in ["unet","retinanet"], "model_type must be unet or retinanet"
 
@@ -120,7 +120,7 @@ def get_cyclegan_prediction(model,model_type,train_scanners,valid_scanners,CGAN_
 
 
 def get_nst_prediction(model,model_type,train_scanners,valid_scanners,image_transforms=None,train_transforms=None,anchors=None,
-                       threshold=0.5,min_detection_dim=10,save_bboxs_name=None,nst_epochs=101,models_dir='/drive/MyDrive/MIDOG_Style_Transfer/models/',evalset='train',device='cuda',max_patches=1000):
+                       threshold=0.5,min_detection_dim=10,save_bboxs_name=None,nst_epochs=101,models_dir='/content/drive/MyDrive/MIDOG_Style_Transfer/models/',evalset='train',device='cuda',max_patches=1000):
   assert model_type in ["unet","retinanet"], "model_type must be unet or retinanet"
   
   vgg = models.vgg19(pretrained = True).features ##removes classifier
