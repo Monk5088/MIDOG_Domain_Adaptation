@@ -13,8 +13,8 @@ from .fastai_sampling import activ_to_bbox, nms_patch, rescale_box, cthw2tlbr, t
 
 def preprocess_crops(no_of_train=5000,no_of_valid=5000,no_of_test=5000,randomise_ids=True,
                      train_scanners=["Hamamatsu XR"],valid_scanners=["Hamamatsu S360"],
-                     image_dir="/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/",
-                     mask_dir="/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/"):
+                     image_dir="/content/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/",
+                     mask_dir="/content/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/"):
   scanner_ids=[str(i+1).zfill(3) for i in range(150)]
   all_images=[]
   all_masks=[]
