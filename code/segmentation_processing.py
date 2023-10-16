@@ -147,12 +147,12 @@ class MIDOG_Images(Dataset):
         self.mask_end_path=mask_end_path
         
         if image_dir == None:
-          self.image_dir = "/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/"
+          self.image_dir = "/content/drive/MyDrive/MIDOG_Challenge_JJB/image_crops/"
         else:
           self.image_dir = image_dir
           
         if mask_dir == None:
-          self.mask_dir = "/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/"
+          self.mask_dir = "/content/drive/MyDrive/MIDOG_Challenge_JJB/mask_crops/"
         else:
           self.mask_dir = mask_dir
         
